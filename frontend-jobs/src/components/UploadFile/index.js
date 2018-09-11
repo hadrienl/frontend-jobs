@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import upload from '../../services/upload';
+import { withFilesManager } from '../FilesManager';
 import render from './render';
 
 export class UploadFile extends React.Component {
@@ -17,12 +17,8 @@ export class UploadFile extends React.Component {
 
   state = {};
 
-  componentDidMount() {
-    this.upload();
-  }
-
-  async upload() {
-    const { file } = this.props;
+  async componentDidMount() {
+    const { upload, file } = this.props;
 
     this.setState({
       sent: false,
@@ -40,7 +36,6 @@ export class UploadFile extends React.Component {
   render() {
     const { render: Render, ...nextProps } = this.props;
     const { sent, sending } = this.state;
-    console.log({sent, sending})
     const props = {
       ...nextProps,
       sent,
@@ -51,4 +46,4 @@ export class UploadFile extends React.Component {
   }
 };
 
-export default UploadFile;
+export default withFilesManager(UploadFile);
