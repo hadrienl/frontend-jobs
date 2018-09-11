@@ -1,0 +1,54 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: lightgray;
+}
+
+.app-header {
+  padding: 0 2rem;
+  text-align: right;
+}
+
+.main {
+  flex: 1;
+}
+
+.main__drop {
+  font-size: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: lightgray;
+  line-height: 5;
+}
+.main__dropped {
+  font-size: 2rem;
+  margin: 1rem;
+}
+.filesList {
+  text-align: left;
+}
+
+.dropzone {
+  background: white;
+  border: 1rem solid white;
+  min-height: 500px;
+  margin: 1rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.dropzone.hover {
+  border: 1rem dashed lightgray;
+}
+
+.dropzone.hover::after {
+  content: '📨';
+  display: block;
+  position: absolute;
+  top: calc(50% - 10rem);
+  font-size: 10rem;
+  height: 100%;
+  left: calc(50% - 5rem);
+}
