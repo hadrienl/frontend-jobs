@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { withFilesManager } from '../FilesManager';
 import render from './render';
 
 export class Main extends React.Component {
@@ -7,24 +8,24 @@ export class Main extends React.Component {
     render,
   };
 
-  state = {
-    files: [],
-  };
+  onFiles = files => {
+    const { upload } = this.props;
 
-  onFiles = files => this.setState({ files: Array.from(files) });
+    for (const file of files) {
+      upload(file, file.name);
+    }
+  };
 
   render() {
     const { render: Render, ...nextProps } = this.props;
-    const { files } = this.state;
     const { onFiles } = this;
     const props = {
       ...nextProps,
       onFiles,
-      files,
     };
 
     return <Render {...props} />;
   }
 };
 
-export default Main;
+export default withFilesManager(Main);

@@ -17,22 +17,6 @@ export class UploadFile extends React.Component {
 
   state = {};
 
-  async componentDidMount() {
-    const { upload, file } = this.props;
-
-    this.setState({
-      sent: false,
-      sending: true,
-    });
-
-    await upload(file);
-
-    this.setState({
-      sent: true,
-      sending: false,
-    });
-  }
-
   render() {
     const { render: Render, ...nextProps } = this.props;
     const { sent, sending } = this.state;

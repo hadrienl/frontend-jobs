@@ -2,12 +2,12 @@ import React from 'react';
 
 export const UploadFileRender = ({ file, sending, sent }) => (
   <React.Fragment>
-    {sending &&
+    {file.sending &&
     <span
       className="loading"
       role="img"
       aria-label="wait for it">🧐</span>}
-    {sent &&
+    {file.sent &&
     <span
       role="img"
       aria-label="uploaded">👌</span>}
