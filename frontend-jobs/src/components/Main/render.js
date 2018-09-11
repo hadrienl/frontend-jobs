@@ -1,8 +1,9 @@
 import React from 'react';
 
 import Dropzone from '../Dropzone';
+import UploadFile from '../UploadFile';
 
-export const MainRender = ({ onFiles, files }) => (
+export const MainRender = ({ onFiles, files, sent, sending }) => (
   <Dropzone
     className="main dropzone"
     onFiles={onFiles}>
@@ -19,7 +20,10 @@ export const MainRender = ({ onFiles, files }) => (
           className="filesList">
           {files.map(file => (
           <li
-            key={file.name}>{file.name}</li>
+            key={file.name}>
+            <UploadFile
+              file={file} />
+          </li>
           ))}
         </ul>
       </div>
